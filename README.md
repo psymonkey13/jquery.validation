@@ -2,7 +2,7 @@ jQeury v3.2.1 + Bootstrap v4.0 Validation
 ===================
 
 
-jQuery 기반으로 유효성체크하는 라이브러리입니다. Bootstrap의 Validation class를 옵션으로 사용할 수 있습니다. 
+jQuery 기반으로 유효성을 체크하는 라이브러리입니다. Bootstrap의 Validation class를 옵션으로 사용할 수 있습니다. 
 
 > **Note:**
 > - jQuery 3.2.1, Bootstrap v4.0 기준으로 제작되었습니다.
