@@ -43,37 +43,39 @@ jQuery 기반으로 유효성을 체크하는 라이브러리입니다. Bootstra
 </script>
 ```
 
-# Literal 유형
-```
-var literal = {
-    name: { // literal 항목 이름
-        selector: $('#name"), // jquery selector
-        required: { // validation 항목
-            message : '이름을 입력해주세요.' // 경고 메시지
+# Literal
+    var literal = {
+        name: { // literal 항목 이름
+            selector: $('#name"), // jquery 선택자
+            required: { // validation 항목
+                message: '이름을 입력해주세요.', // 경고 메시지
+                feedback: '#feedback-position'  // 메시지 표현할 위치(옵션에 따라 무시)
+            }
+        },
+        check: function() {
+            // 리터럴 함수는 반드시 수행결과에 따른  true 또는 false로 반환해야 된다.
+            // 리터럴 함수의 반환값은 최종결과($.validate.rules)에 영향을 준다.
+            return true;
         }
-    },
-    check: function() {
-        // 리터럴 함수는 반드시 수행결과에 따른  true 또는 false로 반환해야 된다.
-        // 리터럴 함수의 반환값은 최종결과($.validate.rules)에 영향을 준다.
-        return true;
-    }
-};
+    };
+* literal 항목 이름: 중복하여 사용할 수 없으며 literal 구분값으로 사용된다.- *필수*
+* selector: jquery 선택자 - *필수*
+* validation 항목: - *필수*
+* literal function: 사용자 정의 함수 수행 후 true 또는 flase를 반환해야 된다.  - *옵션*
 
-return $.validate.rules(literal, { // validation 함수
-    mode: 'bootstrap' // 경고 메시지 유형 alert or bootstrap
-});
-```
-# Options 유형
-    { 
-        mode: '' // alert or bootstrap
-        bootstrap: { // mode 항목이 bootstrap 일때만 적용
-            feedback: 'invalid-feedback',
-            error: 'is-invalid',
-            success: 'is-valid'
-        }
-    }
+# Options
+    var options = { 
+        mode: 'bootstrap'
+    };
+* mode: 'alert' or 'bootstrap' - *필수*
 
-# Validation 항목
+# $.validate.rules(literal, options);
+    var literal = { ... }
+    var options = { ... }
+    var result = $.validate.rules(literal, options);
+* true 또는 false를 반환함
+
+# Validation
 ### 1. required
     sample: { selector: $('#required'), required: { message: '필드를 입력해주세요.' } }
     입력값이 있는지 필수 항목을 체크합니다.
