@@ -65,7 +65,9 @@ jQuery 기반으로 유효성을 체크하는 라이브러리입니다. Bootstra
 
 # Options
     var options = { 
-        mode: 'bootstrap'
+        mode: 'bootstrap' // alert or bootstrap
+        // alert : alert 메시지로 경고 (literal 1개씩 순차적 체크 후 alert창)
+        // bootstrap : bootstrap의 is-valid css 경고 (literal 전체 체크 후 경고 메시지)
     };
 * mode: 'alert' or 'bootstrap' - *필수*
 
