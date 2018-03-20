@@ -251,7 +251,7 @@
             }
             return !(/\D/.test(String(dd))) && dd > 0 && dd <= months[--mm]
         },
-        array: function(array, value) {
+        in: function(array, value) {
             var length = array.length;
             for (var i = 0; i < length; i++) {
                 if (value.indexOf(array[i]) !== -1) {
