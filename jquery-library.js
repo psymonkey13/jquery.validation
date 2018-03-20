@@ -241,10 +241,10 @@
         },
         date: function(value) {
             var bits = value.split('-'),
-            yyyy = bits[0],
-            mm = bits[1],
-            dd = bits[2],
-            months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+                yyyy = bits[0],
+                mm = bits[1],
+                dd = bits[2],
+                months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
             
             if ((!(yyyy % 4) && yyyy % 100) || !(yyyy % 400)) {
                 months[1] = 29;
@@ -259,13 +259,54 @@
                 }
             }
             return false;
+        },
+        pad: function(num, len) {
+            num = String(num);
+            return num.length >= len ? num : new Array(len - num.length + 1).join('0') + num;
+        },
+        browser: function() {
+            var agent = navigator.userAgent.toLowerCase();
+            if (agent.indexOf('chrome') !== -1) {
+                return 'chrome';
+            } else if (agent.indexOf('safari') !== -1) {
+                return 'safari';
+            } else if (agent.indexOf('firefox') !== -1) {
+                return 'firefox';
+            } else if ((navigator.appName === 'Netscape' && navigator.userAgent.search('Trident') !== -1) || (agent.indexOf('msie') !== -1)) {
+                return 'ie'
+            }
+        },
+        device: function() {
+            var agent = navigator.userAgent.toLowerCase();
+            var items = ['iphone', 'ipod', 'ipad', 'android'];
+            var result = undefined;
+            
+            $.each(items, function(i, item) {
+                if (agent.indexOf('iphone') !== -1 || agent.indexOf('ipod') !== -1 || agent.indexOf('ipad') !== -1) {
+                    result = 'ios'
+                    return false;
+                } else if (agent.indexOf('android') !== -1) {
+                    result = 'android'
+                    return false;
+                }
+            });
+            return result;
+        },
+        comma: function (str) {
+            str = String(str);
+            return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+        },
+        popup: function (url, name, width, height) {
+            var x = (screen.availWidth - width) / 2
+                , y = (screen.availHeight - height) / 2;
+            window.open(url, name, 'width=' + width + ', height=' + height + ', left=' + x + ', top=' + y + ', scrollbars=yes, toolbar=no, menubar=no, location=no, resizable=no');
         }
     };
     
     // 유효성 검사항목을 찾고 결과 반환 -custom 이벤트에서만 사용!
     function validatorResult(checker, value1, value2) {
         var result = false
-        if ($.library.array(['required', 'digit', 'email', 'date'], checker)) {
+        if ($.library.in(['required', 'digit', 'email', 'date'], checker)) {
             result = $.validate[checker](value1);
         } else {
             if (litervalValue !== undefined) {

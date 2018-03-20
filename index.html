@@ -26,6 +26,7 @@
     <script src="jquery-library.js"></script>
     <script>
         $(document).ready(function () {
+            console.log($.library.pad(2, 4));
             $(':button').on('click', function () {
                 var literal = {
                     required1: { selector: $('#req1'), required: { message: '필드를 입력해주세요.' } },
