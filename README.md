@@ -9,9 +9,14 @@ jQuery 기반으로 유효성을 체크하는 라이브러리입니다. Bootstra
 
 
 # Quick start
+#### CSS [옵션]
+```
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+```
+
 #### jQuery [필수]
 ```
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 ```
 
 #### jQuery library [필수]
@@ -19,28 +24,60 @@ jQuery 기반으로 유효성을 체크하는 라이브러리입니다. Bootstra
 <script src="jquery-library.js"></script>
 ```
 
-#### Bootstrap CSS [옵션]
-```
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-```
-
 #### Bootstrap Javascript [옵션]
 ```
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 ```
 
 #### Sample Source
 ```
-<script>
-    function formChecker() {
-        var literal = { 
-            name: { selector: $('#name'), required: { message: '성명을 입력해주세요.' } },
-            pwd: { selector: $('#pwd'), min: { value: 4, message: '비밀번호는 4자리 이상 입력해주세요.' } }
-        };
-        return $.validate.rules(literal, { mode: 'bootstrap' });
-    }
-</script>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="form-group">
+            <label class="col-form-label">필수값</label>
+            <input type="text" id="req1" name="req1" class="form-control" />
+        </div>
+        
+        <div class="form-group">
+            <label class="col-form-label">필수값(feedback 위치 지정)</label>
+            <input type="text" id="req2" name="req2" class="form-control" />
+            <div id="feedback1" class="text-danger small"></div>
+        </div>
+        
+        <button type="button" class="btn btn-block btn-primary">전송</button>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="jquery-library.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(':button').on('click', function () {
+                var literal = {
+                    req1: { selector: $('#req1'), required: { message: '필드를 입력해주세요.' } },
+                    req2: { selector: $('#req2'), required: { message: '필드를 입력해주세요.', feedback: '#feedback1' } },
+                    check: function() {
+                        // 리터럴 함수는 반드시 수행결과에 따른 return true, false로 반환해야된다.
+                        // false는 최종결과($.validate.rules)에 영향을 준다.
+                        return true;
+                    }
+                };
+                
+                var result = $.validate.rules(literal, { mode: 'bootstrap' });
+                console.log(result);
+            });
+        });
+    </script>
+</body>
+</html>
 ```
 
 # Literal
