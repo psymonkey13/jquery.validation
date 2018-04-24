@@ -158,8 +158,10 @@
             return false;
         },
         min: function(value, length) {
-            if (value.length >= length) {
-                return true;
+            if ($.isNumeric(value)) {
+                if (value.length >= length) {
+                    return true;
+                }   
             }
             return false;
         },
@@ -309,7 +311,7 @@
         if ($.library.in(['required', 'digit', 'email', 'date'], checker)) {
             result = $.validate[checker](value1);
         } else {
-            if (litervalValue !== undefined) {
+            if (value2 !== undefined) {
                 result = $.validate[checker](value1, value2);
             }
         }
