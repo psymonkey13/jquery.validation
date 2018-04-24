@@ -139,48 +139,56 @@ jQuery 기반으로 유효성을 체크하는 라이브러리입니다. Bootstra
 * message: '날짜형식을 확인해주세요.\nEx) 2018-03-08' - *필수*
 * feedback: '#selector' - *옵션*
 
-### 5. min (길이)
+### 5. length (길이)
+    sample: { selector: $('#length'), length: { value: 2, message: '2자로 입력하세요.' } }
+    입력값의 길이를 체크합니다.
+* value: 2 - *필수*
+* message: '2자로 입력하세요.' - *필수*
+* feedback: '#selector' - *옵션*
+
+### 6. min (길이)
     sample: { selector: $('#min'), min: { value: 2, message: '최소 2자 이상으로 입력하세요.' } }
     입력값의 최소 길이를 체크합니다.
 * value: 2 - *필수*
 * message: '최소 2자 이상으로 입력하세요.' - *필수*
 * feedback: '#selector' - *옵션*
-### 6. max (길이)
+
+### 7. max (길이)
     sample: { selector: $('#max'), max: { value: 4, message: '최대 4자 이하로 입력하세요.' } }
     입력값의 최대 길이를 체크합니다.
 * value: 4 - *필수*
 * message: '최대 4자 이하로 입력하세요.' - *필수*
 * feedback: '#selector' - *옵션*
 
-### 7. from (숫자)
+### 8. from (숫자)
     sample: { selector: $('#from'), from: { value: 2, message: '숫자 2이상으로 입력하세요.' } }
     입력값의 최소 값을 체크합니다.
 * value: 2 - *필수*
 * message: '숫자 2이상으로 입력하세요.' - *필수*
 * feedback: '#selector' - *옵션*
 
-### 8. to (숫자)
+### 9. to (숫자)
     sample: { selector: $('#to'), to: { value: 4, message: '숫자 4이하로 입력하세요.' } }
     입력값의 최대 값을 체크합니다.
 * value: 4 - *필수*
 * message: '숫자 4이하로 입력하세요.' - *필수*
 * feedback: '#selector' - *옵션*
 
-### 9. range (숫자)
+### 10. range (숫자)
     sample: { selector: $('#range'), range: { value: [2, 4], message: '숫자 2이상 4이하로 입력하세요.' } }
     입력값의 범위를 체크합니다.
 * value: [2, 4] - *필수*
 * message: '숫자 2이상 4이하로 입력하세요.' - *필수*
 * feedback: '#selector' - *옵션*
 
-### 10. compare
+### 11. compare
     sample: { selector: $('#compare'), compare: { value: 'test', message: '입력한 값이 test가 아닙니다.' } }
     입력값과 비교값 일치 여부를 체크합니다.
 * value: 'test' - *필수*
 * message: '입력한 값이 test가 아닙니다.' - *필수*
 * feedback: '#selector' - *옵션*
 
-### 11. regex
+### 12. regex
     sample: { selector: $('#regex'), regex: { value: /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/, message: '한글로 입력해주세요.' } }
     입력값이 정규식과 일치 여부를 체크합니다.
 * value: /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/ - *필수*

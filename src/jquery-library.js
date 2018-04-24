@@ -157,6 +157,12 @@
             }
             return false;
         },
+        length: function(value, length) {
+            if (value.length === length) {
+                return true;
+            }
+            return false;
+        },
         min: function(value, length) {
             if ($.isNumeric(value)) {
                 if (value.length >= length) {
