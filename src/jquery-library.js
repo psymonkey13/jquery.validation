@@ -51,8 +51,6 @@
                     }
                 });
 
-                console.log(array);
-
                 return $.validate.feedback(array);
             } catch (e) {
                 if (window.console && window.console.log) {
