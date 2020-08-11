@@ -170,18 +170,14 @@
             return false;
         },
         min: function (value, length) {
-            if ($.isNumeric(value)) {
-                if (value.length >= length) {
-                    return true;
-                }
+            if (value.length >= length) {
+                return true;
             }
             return false;
         },
         max: function (value, length) {
-            if ($.isNumeric(value)) {
-                if (value.length <= length) {
-                    return true;
-                }
+            if (value.length <= length) {
+                return true;
             }
             return false;
         },
