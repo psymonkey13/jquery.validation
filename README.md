@@ -115,80 +115,86 @@ jQuery 기반으로 유효성을 체크하는 라이브러리입니다. Bootstra
 * true 또는 false를 반환함
 
 # Validation
-### required
+### required : 필수가 체크
     sample: { selector: $('#required'), required: { message: '필드를 입력해주세요.' } }
     입력값이 있는지 필수 항목을 체크합니다.
 * message: '입력값을 입력해주세요.' - *필수*
 * feedback: '#selector' - *옵션*
 
-### digit
+### digit : 숫자형 체크(정수)
     sample: { selector: $('#digit'), digit: { message: '숫자만 입력해주세요.' } }
     입력값이 숫자인지 체크합니다.
 * message: '숫자만 입력해주세요.' - *필수*
 * feedback: '#selector' - *옵션*
 
-### email
+### email : 이메일 형식 체크(정규식 사용)
     sample: { selector: $('#email'), email: { message: '이메일형식을 확인해주세요.' } }
     입력값이 이메일 형식인지 체크합니다.
 * message: '이메일형식을 확인해주세요.' - *필수*
 * feedback: '#selector' - *옵션*
 
-### date
+### date : 날짜 형식 체크(yyyy-MM-dd)
     sample: { selector: $('#date'), date: { message: '날짜형식을 확인해주세요.\nEx) 2018-03-08' } }
     입력값이 날짜형식인지 체크합니다. 2018-03-08 형식
 * message: '날짜형식을 확인해주세요.\nEx) 2018-03-08' - *필수*
 * feedback: '#selector' - *옵션*
 
-### length (길이)
+### mobile : 휴대폰형식 체크(010)
+    sample: { selector: $('#date'), date: { message: '날짜형식을 확인해주세요.\nEx) 2018-03-08' } }
+    입력값이 날짜형식인지 체크합니다. 2018-03-08 형식
+* message: '날짜형식을 확인해주세요.\nEx) 2018-03-08' - *필수*
+* feedback: '#selector' - *옵션*
+
+### length :  문자열 길이 체크
     sample: { selector: $('#length'), length: { value: 2, message: '2자로 입력하세요.' } }
     입력값의 길이를 체크합니다.
 * value: 2 - *필수*
 * message: '2자로 입력하세요.' - *필수*
 * feedback: '#selector' - *옵션*
 
-### min (길이)
+### min : 문자열 최소 길이 체크
     sample: { selector: $('#min'), min: { value: 2, message: '최소 2자 이상으로 입력하세요.' } }
     입력값의 최소 길이를 체크합니다.
 * value: 2 - *필수*
 * message: '최소 2자 이상으로 입력하세요.' - *필수*
 * feedback: '#selector' - *옵션*
 
-### max (길이)
+### max : 문자열 최대 길이 체크
     sample: { selector: $('#max'), max: { value: 4, message: '최대 4자 이하로 입력하세요.' } }
     입력값의 최대 길이를 체크합니다.
 * value: 4 - *필수*
 * message: '최대 4자 이하로 입력하세요.' - *필수*
 * feedback: '#selector' - *옵션*
 
-### from (숫자)
+### from : 숫자  크기 체크(이상)
     sample: { selector: $('#from'), from: { value: 2, message: '숫자 2이상으로 입력하세요.' } }
     입력값의 최소 값을 체크합니다.
 * value: 2 - *필수*
 * message: '숫자 2이상으로 입력하세요.' - *필수*
 * feedback: '#selector' - *옵션*
 
-### to (숫자)
+### to : 숫자 크기 체크(이하)
     sample: { selector: $('#to'), to: { value: 4, message: '숫자 4이하로 입력하세요.' } }
     입력값의 최대 값을 체크합니다.
 * value: 4 - *필수*
 * message: '숫자 4이하로 입력하세요.' - *필수*
 * feedback: '#selector' - *옵션*
 
-### range (숫자)
+### range : 숫자 범위 체크
     sample: { selector: $('#range'), range: { value: [2, 4], message: '숫자 2이상 4이하로 입력하세요.' } }
     입력값의 범위를 체크합니다.
 * value: [2, 4] - *필수*
 * message: '숫자 2이상 4이하로 입력하세요.' - *필수*
 * feedback: '#selector' - *옵션*
 
-### compare
+### compare : 값 비교
     sample: { selector: $('#compare'), compare: { value: 'test', message: '입력한 값이 test가 아닙니다.' } }
     입력값과 비교값 일치 여부를 체크합니다.
 * value: 'test' - *필수*
 * message: '입력한 값이 test가 아닙니다.' - *필수*
 * feedback: '#selector' - *옵션*
 
-### regex
+### regex : 정규식
     sample: { selector: $('#regex'), regex: { value: /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/, message: '한글로 입력해주세요.' } }
     입력값이 정규식과 일치 여부를 체크합니다.
 * value: /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/ - *필수*

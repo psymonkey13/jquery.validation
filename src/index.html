@@ -7,15 +7,58 @@
 </head>
 <body>
     <div class="container">
+        <div style="height:100px;"></div>
         <div class="form-group">
-            <label class="col-form-label">필수값</label>
+            <label class="col-form-label">필수값(required)</label>
             <input type="text" id="req1" name="req1" class="form-control" />
+            <pre class="text-muted">req1: { selector: $('#req1'), required: { message: '필드를 입력해주세요.' } }</pre>
         </div>
         
         <div class="form-group">
-            <label class="col-form-label">필수값(feedback 위치 지정)</label>
+            <label class="col-form-label">필수값(digit)</label>
             <input type="text" id="req2" name="req2" class="form-control" />
-            <div id="feedback1" class="text-danger small"></div>
+            <pre class="text-muted">req2: { selector: $('#req2'), digit: { message: '숫자(정수) 형식으로 입력해주세요.' } }</pre>
+        </div>
+
+        <div class="form-group">
+            <label class="col-form-label">필수값</label>
+            <input type="text" id="req3" name="req3" class="form-control" />
+            <pre class="text-muted">req3: { selector: $('#req3'), length: { value: 3, message: '3글자로 입력해주세요.' } }</pre>
+        </div>
+
+        <div class="form-group">
+            <label class="col-form-label">필수값</label>
+            <input type="text" id="req4" name="req4" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label class="col-form-label">필수값</label>
+            <input type="text" id="req5" name="req5" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label class="col-form-label">필수값</label>
+            <input type="text" id="req6" name="req6" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label class="col-form-label">필수값</label>
+            <input type="text" id="req7" name="req7" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label class="col-form-label">필수값</label>
+            <input type="text" id="req8" name="req8" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label class="col-form-label">필수값</label>
+            <input type="text" id="req9" name="req9" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label class="col-form-label">필수값</label>
+            <input type="text" id="req10" name="req10" class="form-control" />
         </div>
         
         <button type="button" class="btn btn-block btn-primary">전송</button>
@@ -28,16 +71,22 @@
         $(document).ready(function () {
             $(':button').on('click', function () {
                 var literal = {
-                    req1: { selector: $('#req1'), required: { message: '필드를 입력해주세요.' } },
-                    req2: { selector: $('#req2'), required: { message: '필드를 입력해주세요.', feedback: '#feedback1' } },
-                    check: function() {
-                        // 리터럴 함수는 반드시 수행결과에 따른 return true, false로 반환해야된다.
-                        // false는 최종결과($.validate.rules)에 영향을 준다.
-                        return true;
-                    }
+                    // req1: { selector: $('#req1'), required: { message: '필드를 입력해주세요.' } }
+                    // req2: { selector: $('#req2'), digit: { message: '숫자(정수) 형식으로 입력해주세요.' } }
+                    req3: { selector: $('#req3'), length: { value: 3, message: '3글자로 입력해주세요.' } }
+                    // min
+                    // max
+                    // from
+                    // to
+                    // range
+                    // email
+                    // mobile
+                    // compare
+                    // date
+                    // regex
                 };
                 
-                var result = $.validate.rules(literal, { mode: 'bootstrap' });
+                var result = $.validate.rules(literal, { mode: 'alert' });
                 console.log(result);
             });
         });
