@@ -170,18 +170,6 @@
             }
             return false;
         },
-        min: function (value, length) {
-            if (value.length >= length) {
-                return true;
-            }
-            return false;
-        },
-        max: function (value, length) {
-            if (value.length <= length) {
-                return true;
-            }
-            return false;
-        },
         from: function (value, length) {
             if ($.library.digit(value)) {
                 if (value >= length) {
@@ -215,7 +203,6 @@
         },
         email: function (value) {
             var rule = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-
             if (rule.test(value)) {
                 return true;
             }

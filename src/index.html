@@ -9,57 +9,70 @@
     <div class="container">
         <div style="height:100px;"></div>
         <div class="form-group">
-            <label class="col-form-label">필수값(required)</label>
+            <label class="col-form-label">필수값 체크 : required</label>
             <input type="text" id="req1" name="req1" class="form-control" />
-            <pre class="text-muted">req1: { selector: $('#req1'), required: { message: '필드를 입력해주세요.' } }</pre>
+            <pre class="text-muted">name: { selector: $('#jquery-id'), required: { message: '필드를 입력해주세요.' } }</pre>
         </div>
         
         <div class="form-group">
-            <label class="col-form-label">필수값(digit)</label>
+            <label class="col-form-label">숫자(정수) 체크 : digit</label>
             <input type="text" id="req2" name="req2" class="form-control" />
-            <pre class="text-muted">req2: { selector: $('#req2'), digit: { message: '숫자(정수) 형식으로 입력해주세요.' } }</pre>
+            <pre class="text-muted">name: { selector: $('#jquery-id'), digit: { message: '숫자(정수) 형식으로 입력해주세요.' } }</pre>
         </div>
 
         <div class="form-group">
-            <label class="col-form-label">필수값</label>
+            <label class="col-form-label">문자열 길이 체크 : length</label>
             <input type="text" id="req3" name="req3" class="form-control" />
-            <pre class="text-muted">req3: { selector: $('#req3'), length: { value: 3, message: '3글자로 입력해주세요.' } }</pre>
+            <pre class="text-muted">name: { selector: $('#jquery-id'), length: { value: 3, message: '문자는 3자로 입력해주세요.' } }</pre>
         </div>
 
         <div class="form-group">
-            <label class="col-form-label">필수값</label>
+            <label class="col-form-label">숫자(정수) 이상 체크 : from</label>
             <input type="text" id="req4" name="req4" class="form-control" />
+            <pre class="text-muted">name: { selector: $('#jquery-id'), from: { value: 3, message: '숫자 3이상으로 입력해주세요.' } }</pre>
         </div>
 
         <div class="form-group">
-            <label class="col-form-label">필수값</label>
+            <label class="col-form-label">숫자(정수) 이하 체크 : to</label>
             <input type="text" id="req5" name="req5" class="form-control" />
+            <pre class="text-muted">name: { selector: $('#jquery-id'), to: { value: 3, message: '숫자 3이하로 입력해주세요.' } }</pre>
         </div>
 
         <div class="form-group">
-            <label class="col-form-label">필수값</label>
+            <label class="col-form-label">숫자(정수) 범위 체크 : range</label>
             <input type="text" id="req6" name="req6" class="form-control" />
+            <pre class="text-muted">name: { selector: $('#jquery-id'), range: { value: [5, 10], message: '숫자 5이상 10이하로 입력해주세요.' } }</pre>
         </div>
 
         <div class="form-group">
-            <label class="col-form-label">필수값</label>
+            <label class="col-form-label">이메일 형식 체크 : email</label>
             <input type="text" id="req7" name="req7" class="form-control" />
+            <pre class="text-muted">name: { selector: $('#jquery-id'), email: { message: '이메일 형식을 확인해주세요.' } }</pre>
         </div>
 
         <div class="form-group">
-            <label class="col-form-label">필수값</label>
+            <label class="col-form-label">휴대폰번호 형식 체크 : mobile</label>
             <input type="text" id="req8" name="req8" class="form-control" />
+            <pre class="text-muted">name: { selector: $('#jquery-id'), mobile: { message: '휴대폰 형식을 확인해주세요.\nEX) 01012341234' } }</pre>
         </div>
 
         <div class="form-group">
-            <label class="col-form-label">필수값</label>
+            <label class="col-form-label">문자열 비교 : compare</label>
             <input type="text" id="req9" name="req9" class="form-control" />
+            <pre class="text-muted">name: { selector: $('#jquery-id'), compare: { value: 'test', message: '입력값이 test와 일치하지 않습니다.' } }</pre>
         </div>
 
         <div class="form-group">
-            <label class="col-form-label">필수값</label>
+            <label class="col-form-label">날짜형식 체크 : date</label>
             <input type="text" id="req10" name="req10" class="form-control" />
+            <pre class="text-muted">name: { selector: $('#jquery-id'), date: { message: '날짜형식을 확인해주세요.\nEX) 2021-01-12' } }</pre>
         </div>
+        
+        <div class="form-group">
+            <label class="col-form-label">정규식 체크 : regex</label>
+            <input type="text" id="req11" name="req11" class="form-control" />
+            <pre class="text-muted">name: { selector: $('#jquery-id'), regex: { value: /^[0-9]+$/, message: '문자열 형식을 확인해주세요.' } }</pre>
+        </div>        
         
         <button type="button" class="btn btn-block btn-primary">전송</button>
     </div>
@@ -71,19 +84,17 @@
         $(document).ready(function () {
             $(':button').on('click', function () {
                 var literal = {
-                    // req1: { selector: $('#req1'), required: { message: '필드를 입력해주세요.' } }
-                    // req2: { selector: $('#req2'), digit: { message: '숫자(정수) 형식으로 입력해주세요.' } }
-                    req3: { selector: $('#req3'), length: { value: 3, message: '3글자로 입력해주세요.' } }
-                    // min
-                    // max
-                    // from
-                    // to
-                    // range
-                    // email
-                    // mobile
-                    // compare
-                    // date
-                    // regex
+                    req1: { selector: $('#req1'), required: { message: '필드를 입력해주세요.' } },
+                    req2: { selector: $('#req2'), digit: { message: '숫자(정수) 형식으로 입력해주세요.' } },
+                    req3: { selector: $('#req3'), length: { value: 3, message: '문자는 3자로 입력해주세요.' } },
+                    req4: { selector: $('#req4'), from: { value: 3, message: '숫자 3이상으로 입력해주세요.' } },
+                    req5: { selector: $('#req5'), to: { value: 3, message: '숫자 3이하로 입력해주세요.' } },
+                    req6: { selector: $('#req6'), range: { value: [5, 10], message: '숫자 5이상 10이하로 입력해주세요.' } },
+                    req7: { selector: $('#req7'), email: { message: '이메일 형식을 확인해주세요.' } },
+                    req8: { selector: $('#req8'), mobile: { message: '휴대폰 형식을 확인해주세요.\nEX) 01012341234' } },
+                    req9: { selector: $('#req9'), compare: { value: 'test', message: '입력값이 test와 일치하지 않습니다.' } },
+                    req10: { selector: $('#req10'), date: { message: '날짜형식을 확인해주세요.\nEX) 2021-01-12' } },
+                    req11: { selector: $('#req11'), regex: { value: /^[0-9]+$/, message: '문자열 형식을 확인해주세요.' } }
                 };
                 
                 var result = $.validate.rules(literal, { mode: 'alert' });

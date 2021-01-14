@@ -139,7 +139,7 @@ jQuery 기반으로 유효성을 체크하는 라이브러리입니다. Bootstra
 * message: '날짜형식을 확인해주세요.\nEx) 2018-03-08' - *필수*
 * feedback: '#selector' - *옵션*
 
-### mobile : 휴대폰형식 체크(010)
+### mobile : 휴대폰형식 체크(01012341234)
     sample: { selector: $('#date'), date: { message: '날짜형식을 확인해주세요.\nEx) 2018-03-08' } }
     입력값이 날짜형식인지 체크합니다. 2018-03-08 형식
 * message: '날짜형식을 확인해주세요.\nEx) 2018-03-08' - *필수*
@@ -150,20 +150,6 @@ jQuery 기반으로 유효성을 체크하는 라이브러리입니다. Bootstra
     입력값의 길이를 체크합니다.
 * value: 2 - *필수*
 * message: '2자로 입력하세요.' - *필수*
-* feedback: '#selector' - *옵션*
-
-### min : 문자열 최소 길이 체크
-    sample: { selector: $('#min'), min: { value: 2, message: '최소 2자 이상으로 입력하세요.' } }
-    입력값의 최소 길이를 체크합니다.
-* value: 2 - *필수*
-* message: '최소 2자 이상으로 입력하세요.' - *필수*
-* feedback: '#selector' - *옵션*
-
-### max : 문자열 최대 길이 체크
-    sample: { selector: $('#max'), max: { value: 4, message: '최대 4자 이하로 입력하세요.' } }
-    입력값의 최대 길이를 체크합니다.
-* value: 4 - *필수*
-* message: '최대 4자 이하로 입력하세요.' - *필수*
 * feedback: '#selector' - *옵션*
 
 ### from : 숫자  크기 체크(이상)
