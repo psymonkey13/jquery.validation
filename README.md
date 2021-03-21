@@ -140,9 +140,9 @@ jQuery 기반으로 유효성을 체크하는 라이브러리입니다. Bootstra
 * feedback: '#selector' - *옵션*
 
 ### mobile : 휴대폰형식 체크(01012341234)
-    sample: { selector: $('#date'), date: { message: '날짜형식을 확인해주세요.\nEx) 2018-03-08' } }
-    입력값이 날짜형식인지 체크합니다. 2018-03-08 형식
-* message: '날짜형식을 확인해주세요.\nEx) 2018-03-08' - *필수*
+    sample: { selector: $('#mobile'), date: { message: '휴대폰번호를 확인해주세요.\nEx) 01012341234' } }
+    입력값이 휴대폰형식인지 체크합니다. 01012341234 형식
+* message: '휴대폰번호를 확인해주세요.\nEx) 01012341234' - *필수*
 * feedback: '#selector' - *옵션*
 
 ### length :  문자열 길이 체크
